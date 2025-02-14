@@ -1,7 +1,15 @@
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
 
-export default {
-  // Consult https://svelte.dev/docs#compile-time-svelte-preprocess
-  // for more information about preprocessors
-  preprocess: vitePreprocess(),
-}
+export default defineConfig({
+  plugins: [sveltekit()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
+});
