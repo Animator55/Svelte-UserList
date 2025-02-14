@@ -1,0 +1,33 @@
+.back-blur {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inset: 0;
+    z-index: 2;
+}
+
+.pop {
+    padding: 2rem;
+    background-color: var(--cdarkgray);
+    color: var(--clightgray);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+}
+
+.pop h3 {
+    text-align: center;
+    margin: 0;
+}
+
+.pop .submit-button {
+    width: 100%;
+}
+
+.pop form:has(.loading-button) * {
+    opacity: .7;
+    pointer-events: none;
+}

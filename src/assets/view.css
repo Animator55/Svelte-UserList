@@ -1,0 +1,130 @@
+
+.view-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.custom-input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.first-fade-up {
+    opacity: 0;
+    animation: fade-up 200ms forwards;
+}
+.custom-input label::first-letter {
+    text-transform: capitalize;
+}
+.custom-input select, 
+.custom-input input {
+    background-color: transparent;
+    outline: none;
+    padding: .4rem;
+    appearance: none;
+    border: none;
+    border-bottom: 2px solid var(--clightgray);
+}
+
+.view-section header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem;
+}
+@keyframes fade-to-left {
+    from {
+        left: -5rem;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+.view-section header button:first-child {
+    background-color: transparent;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .3rem .7rem;
+    color: var(--corange);
+    border-radius: 5px;
+    position: relative;
+    opacity: 0;
+    animation: fade-to-left 200ms forwards;
+}
+.view-section header button:first-child:hover {
+    background-color: rgba(0, 0, 0, 0.087);
+}
+.view-section header h3 {
+    margin: 0;
+    font-weight: normal;
+    position: relative;
+    opacity: 0;
+    animation: fade-to-left 200ms 100ms forwards;
+}
+
+.edit-button {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    padding: .3rem .7rem;
+    border-radius: 5px;
+    margin: .5rem;
+    gap:.5rem;
+    width: fit-content;
+    margin-left: auto;
+    color: var(--corange);
+    position: relative;
+    opacity: 0;
+    animation: fade-to-left 200ms 300ms forwards;
+}
+.edit-button:hover{
+    background-color: rgba(0, 0, 0, 0.087);
+}
+
+.main-division {
+    display: flex;
+    height: 100%;
+}
+
+.main-division .image-zone {
+    height: 100%;
+    min-width: 45%;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+.main-division .image-zone svg {
+    margin-top: 3rem;
+    height: 50%;
+    color: var(--cgray);
+    position: relative;
+    opacity: 0;
+    animation: fade-up 200ms 300ms forwards;
+}
+
+.main-division form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: calc(100% - 6rem);
+    padding: 3rem 4rem;
+    padding-left: 0;
+}
+
+.main-division form button {
+    background-color: var(--corange);
+    color: var(--cwhite);
+    padding: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
