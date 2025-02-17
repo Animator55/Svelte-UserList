@@ -8,6 +8,7 @@
     import type { userDataType, userType } from '../vite-env';
     
     export let toast: Function | null = null;
+    export let offline: boolean = false;
 
     let list: undefined | userType[] = undefined;
     let pop = false;
@@ -15,12 +16,12 @@
     let inputRef: null | HTMLInputElement = null;
 
     const getList = async () => {
-        list = await _getUsers(query);
+        list = await _getUsers(query, offline);
         console.log(list)
     };
 
     const addUser = async (newUser: userDataType) => {
-        let result = await _newUser(newUser);
+        let result = await _newUser(newUser, offline);
         if(toast)toast(result);
     };
 

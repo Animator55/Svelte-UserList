@@ -39,9 +39,9 @@
       if (toast) toast.remove();
     }, 3300);
   };
-  let routeComponent;
 
-  console.log(currentRoute)
+  const offline = true
+  let routeComponent;
 
   $: {
     if (currentRoute === "/") routeComponent = UserList;
@@ -52,7 +52,7 @@
 </script>
 
 <div class="toast-container"></div>
-<svelte:component this={routeComponent} {toast} />
+<svelte:component this={routeComponent} {toast} {offline} />
 
 <style>
   @import "./assets/App.css";

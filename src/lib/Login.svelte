@@ -6,6 +6,7 @@
     import { _auth } from '../logic/api';
     
     export let toast: Function | null = null;
+    export let offline: boolean = false;
     
     let viewPassword = false;
     let email = "afoamsof@ngiao.com";
@@ -19,7 +20,7 @@
         if(!submitButton)return
         submitButton.classList.add('loading-button');
 
-        let result = await _auth(email, password);
+        let result = await _auth(email, password, offline);
         if(toast)toast(result);
         
         if (result.icon !== "check") {

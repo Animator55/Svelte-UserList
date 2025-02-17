@@ -11,9 +11,9 @@
     import "../assets/view.css";
     import "../assets/auth.css";
     import "../assets/App.css";
-    import type { FormEventHandler } from "svelte/elements";
 
     export let toast: Function | null = null;
+    export let offline: boolean = false;
     let editMode = false;
     let data: any | undefined = undefined;
 
@@ -28,7 +28,7 @@
         if (submitButton) submitButton.classList.add("loading-button");
 
         if (!data) return;
-        let result = await _editUser(data);
+        let result = await _editUser(data, offline);
         setTimeout(() => {
             if(toast)toast(result);
             editMode = false;
@@ -37,7 +37,7 @@
 
     async function getUser() {
         let id = getKeysFromUrl("_id");
-        if (id) data = await _getUserById(id);
+        if (id) data = await _getUserById(id, offline);
     }
     onMount(() => {
         if (data !== undefined) return;
