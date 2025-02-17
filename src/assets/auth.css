@@ -83,8 +83,9 @@
     flex-wrap: wrap;
     display: flex;
 }
-.labeled-input > label {
+.labeled-input > h4 {
     font-size: 0.8rem;
+    font-weight: normal;
     color: var(--clightgray);
 }
 .labeled-input > a {

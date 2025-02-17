@@ -1,4 +1,6 @@
 <script lang="ts">
+    import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+    import { FontAwesomeIcon } from "@fortawesome/svelte-fontawesome";
     let formRef: HTMLFormElement | null = null;
 
     export let confirm: Function | null = null;
@@ -20,20 +22,20 @@
     }
 </script>
 
-<section class='back-blur' on:click={(e) => {
-    let target = e.target as HTMLDivElement
-    if (target && target.classList.contains("back-blur") && close) close();
-}}>
+<section class='back-blur'>
     <div class='pop'>
+        <button on:click={()=>{if(close) close()}}>
+            <FontAwesomeIcon icon={faArrowLeft}/>
+        </button>
         <form bind:this={formRef} on:submit={handleSubmit}>
             <h3>Create User</h3>
             <hr>
             <div class='labeled-input'>
-                <label>Name</label>
+                <h4>Name</h4>
                 <input name='name' />
             </div>
             <div class='labeled-input'>
-                <label>Gender</label>
+                <h4>Gender</h4>
                 <select name='gender'>
                     <option>Man</option>
                     <option>Woman</option>
@@ -42,11 +44,11 @@
             </div>
             <hr>
             <div class='labeled-input'>
-                <label>Email</label>
+                <h4>Email</h4>
                 <input type='email' name='email' />
             </div>
             <div class='labeled-input'>
-                <label>Phone</label>
+                <h4>Phone</h4>
                 <input type='tel' name='phone' />
             </div>
             <button class='submit-button' type='submit' data-text='Create'>
